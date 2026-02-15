@@ -1,30 +1,33 @@
 package com.example.demo.person.list.adapter;
 
 import com.example.demo.person.Person;
+import com.example.demo.person.repository.PersonEntity;
+import com.example.demo.person.repository.PersonRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 @Component
+@RequiredArgsConstructor
 public class PersonListAdapterImpl implements PersonListAdapter {
+
+    private final PersonRepository repository;
 
     @Override
     public List<Person> getList() {
-        return List.of(
-            this.getPerson(),
-            this.getPerson()
-        );
+        return this.fromEntityListToDomainList(this.repository.list());
     }
 
-    private Person getPerson() {
-        return new Person(
-            UUID.randomUUID().toString(),
-            "Bob",
-            "Dole",
-            LocalDate.now()
-        );
+    private List<Person> fromEntityListToDomainList(List<PersonEntity> list) {
+        return list.stream().map( entity ->
+            new Person(
+                entity.getId().toString(),
+                entity.getName(),
+                entity.getLastName(),
+                entity.getBirthDate()
+            )
+        ).toList();
     }
 
 }
