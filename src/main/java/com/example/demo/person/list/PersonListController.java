@@ -1,25 +1,28 @@
-package com.example.demo.person;
+package com.example.demo.person.list;
 
-import com.example.demo.person.usecase.PersonUseCase;
+import com.example.demo.person.Person;
+import com.example.demo.person.list.usecase.PersonListUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/people")
-public class PersonController {
+public class PersonListController {
 
-    private final PersonUseCase useCase;
+    private final PersonListUseCase useCase;
 
-    public PersonController(PersonUseCase useCase) {
+    public PersonListController(PersonListUseCase useCase) {
         this.useCase = useCase;
     }
 
     @GetMapping
-    public ResponseEntity<Person> get() {
+    public ResponseEntity<List<Person>> get() {
         return ResponseEntity.ok(
-            this.useCase.get()
+            this.useCase.getList()
         );
     }
 
