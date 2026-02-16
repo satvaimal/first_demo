@@ -18,6 +18,6 @@ public class PersonEntity {
 
     private String lastName;
 
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
 }
