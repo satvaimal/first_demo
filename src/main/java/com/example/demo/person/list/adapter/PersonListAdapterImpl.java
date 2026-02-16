@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Component
 @RequiredArgsConstructor
@@ -19,7 +21,8 @@ public class PersonListAdapterImpl implements PersonListAdapter {
     @Override
     public List<Person> getList() {
         return this.mapper.fromEntityListToDomainList(
-            this.repository.list());
+            StreamSupport.stream(this.repository.findAll().spliterator(), false)
+                .collect(Collectors.toList()));
     }
 
 }

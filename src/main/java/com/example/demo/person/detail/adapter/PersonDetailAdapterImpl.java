@@ -19,7 +19,7 @@ public class PersonDetailAdapterImpl implements PersonDetailAdapter {
     @Override
     public Person getDetail(String id) {
         return this.mapper.fromEntityToDomain(
-            this.repository.findById(UUID.fromString(id)));
+            this.repository.findById(UUID.fromString(id)).orElse(null));
     }
 
 }
