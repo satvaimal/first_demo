@@ -1,6 +1,6 @@
 package com.example.demo.person.list.controller;
 
-import com.example.demo.person.dto.PersonDto;
+import com.example.demo.person.common.controller.dto.PersonDto;
 import com.example.demo.person.list.controller.mapper.PersonListDtoMapper;
 import com.example.demo.person.list.usecase.PersonListUseCase;
 import lombok.RequiredArgsConstructor;

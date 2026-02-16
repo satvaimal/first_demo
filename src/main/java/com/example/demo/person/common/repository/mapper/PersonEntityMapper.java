@@ -1,7 +1,7 @@
-package com.example.demo.person.repository.mapper;
+package com.example.demo.person.common.repository.mapper;
 
-import com.example.demo.person.Person;
-import com.example.demo.person.repository.PersonEntity;
+import com.example.demo.person.common.domain.Person;
+import com.example.demo.person.common.repository.PersonEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

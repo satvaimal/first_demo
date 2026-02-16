@@ -1,8 +1,8 @@
 package com.example.demo.person.detail.adapter;
 
-import com.example.demo.person.Person;
-import com.example.demo.person.repository.PersonRepository;
-import com.example.demo.person.repository.mapper.PersonEntityMapper;
+import com.example.demo.person.common.domain.Person;
+import com.example.demo.person.common.repository.PersonRepository;
+import com.example.demo.person.common.repository.mapper.PersonEntityMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

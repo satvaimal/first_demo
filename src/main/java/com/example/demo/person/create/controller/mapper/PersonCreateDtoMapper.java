@@ -1,6 +1,6 @@
 package com.example.demo.person.create.controller.mapper;
 
-import com.example.demo.person.Person;
+import com.example.demo.person.common.domain.Person;
 import com.example.demo.person.create.controller.dto.PersonCreateDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

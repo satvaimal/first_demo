@@ -1,4 +1,4 @@
-package com.example.demo.person.dto;
+package com.example.demo.person.common.controller.dto;
 
 import java.time.LocalDate;
 

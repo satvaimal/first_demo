@@ -1,8 +1,6 @@
 package com.example.demo.person.create.usecase;
 
-import com.example.demo.person.Person;
-
-import java.util.List;
+import com.example.demo.person.common.domain.Person;
 
 public interface PersonCreateUseCase {
 

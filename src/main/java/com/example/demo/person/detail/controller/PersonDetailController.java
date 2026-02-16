@@ -1,9 +1,9 @@
 package com.example.demo.person.detail.controller;
 
-import com.example.demo.person.Person;
+import com.example.demo.person.common.domain.Person;
 import com.example.demo.person.detail.usecase.PersonDetailUseCase;
-import com.example.demo.person.dto.PersonDto;
-import com.example.demo.person.dto.mapper.PersonDtoMapper;
+import com.example.demo.person.common.controller.dto.PersonDto;
+import com.example.demo.person.common.controller.dto.mapper.PersonDtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

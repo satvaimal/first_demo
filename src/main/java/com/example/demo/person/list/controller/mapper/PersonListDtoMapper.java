@@ -1,7 +1,7 @@
 package com.example.demo.person.list.controller.mapper;
 
-import com.example.demo.person.Person;
-import com.example.demo.person.dto.PersonDto;
+import com.example.demo.person.common.domain.Person;
+import com.example.demo.person.common.controller.dto.PersonDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

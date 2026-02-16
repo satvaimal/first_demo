@@ -1,6 +1,6 @@
 package com.example.demo.person.detail.usecase;
 
-import com.example.demo.person.Person;
+import com.example.demo.person.common.domain.Person;
 import com.example.demo.person.detail.adapter.PersonDetailAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

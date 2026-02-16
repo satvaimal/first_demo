@@ -1,11 +1,10 @@
 package com.example.demo.person.create.controller;
 
-import com.example.demo.person.Person;
 import com.example.demo.person.create.controller.dto.PersonCreateDto;
 import com.example.demo.person.create.controller.mapper.PersonCreateDtoMapper;
 import com.example.demo.person.create.usecase.PersonCreateUseCase;
-import com.example.demo.person.dto.PersonDto;
-import com.example.demo.person.dto.mapper.PersonDtoMapper;
+import com.example.demo.person.common.controller.dto.PersonDto;
+import com.example.demo.person.common.controller.dto.mapper.PersonDtoMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
