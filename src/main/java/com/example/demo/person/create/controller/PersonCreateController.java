@@ -4,6 +4,8 @@ import com.example.demo.person.Person;
 import com.example.demo.person.create.controller.dto.PersonCreateDto;
 import com.example.demo.person.create.controller.mapper.PersonCreateDtoMapper;
 import com.example.demo.person.create.usecase.PersonCreateUseCase;
+import com.example.demo.person.dto.PersonDto;
+import com.example.demo.person.dto.mapper.PersonDtoMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,10 +24,18 @@ public class PersonCreateController {
 
     private final PersonCreateDtoMapper mapper;
 
+    private final PersonDtoMapper dtoMapper;
+
     @PostMapping
-    public ResponseEntity<Person> create(@RequestBody @Valid PersonCreateDto dto) {
-        return new ResponseEntity<>(useCase.create(
-            mapper.fromCreateDtoToDomain(dto)), HttpStatus.CREATED);
+    public ResponseEntity<PersonDto> create(@RequestBody @Valid PersonCreateDto dto) {
+        return new ResponseEntity<>(
+            this.dtoMapper.fromDomainToDto(
+                useCase.create(
+                    mapper.fromCreateDtoToDomain(dto)
+                )
+            ),
+            HttpStatus.CREATED
+        );
     }
 
 }

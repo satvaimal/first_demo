@@ -1,6 +1,7 @@
 package com.example.demo.person.list.controller;
 
-import com.example.demo.person.Person;
+import com.example.demo.person.dto.PersonDto;
+import com.example.demo.person.list.controller.mapper.PersonListDtoMapper;
 import com.example.demo.person.list.usecase.PersonListUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,14 @@ public class PersonListController {
 
     private final PersonListUseCase useCase;
 
+    private final PersonListDtoMapper mapper;
+
     @GetMapping
-    public ResponseEntity<List<Person>> getList() {
+    public ResponseEntity<List<PersonDto>> getList() {
         return ResponseEntity.ok(
-            this.useCase.getList()
+            this.mapper.fromDomainListToDtoList(
+                this.useCase.getList()
+            )
         );
     }
 

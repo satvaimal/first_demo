@@ -2,6 +2,8 @@ package com.example.demo.person.detail.controller;
 
 import com.example.demo.person.Person;
 import com.example.demo.person.detail.usecase.PersonDetailUseCase;
+import com.example.demo.person.dto.PersonDto;
+import com.example.demo.person.dto.mapper.PersonDtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,13 +18,17 @@ public class PersonDetailController {
 
     private final PersonDetailUseCase useCase;
 
+    private final PersonDtoMapper mapper;
+
     @GetMapping("/{id}")
-    public ResponseEntity<Person> getDetail(@PathVariable String id) {
+    public ResponseEntity<PersonDto> getDetail(@PathVariable String id) {
         Person person = this.useCase.getDetail(id);
         if (person == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(person);
+        return ResponseEntity.ok(
+            this.mapper.fromDomainToDto(person)
+        );
     }
 
 }
