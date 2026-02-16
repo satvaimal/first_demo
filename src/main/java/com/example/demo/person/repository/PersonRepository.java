@@ -1,9 +1,12 @@
 package com.example.demo.person.repository;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface PersonRepository {
 
     List<PersonEntity> list();
+
+    PersonEntity findById(UUID id);
 
 }

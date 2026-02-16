@@ -20,7 +20,7 @@ public class PersonListController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Person>> get() {
+    public ResponseEntity<List<Person>> getList() {
         return ResponseEntity.ok(
             this.useCase.getList()
         );

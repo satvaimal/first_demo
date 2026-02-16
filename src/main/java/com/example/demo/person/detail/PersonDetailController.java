@@ -1,0 +1,30 @@
+package com.example.demo.person.detail;
+
+import com.example.demo.person.Person;
+import com.example.demo.person.detail.usecase.PersonDetailUseCase;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/v1/people")
+public class PersonDetailController {
+
+    private final PersonDetailUseCase useCase;
+
+    public PersonDetailController(PersonDetailUseCase useCase) {
+        this.useCase = useCase;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Person> getDetail(@PathVariable String id) {
+        Person person = this.useCase.getDetail(id);
+        if (person == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(person);
+    }
+
+}

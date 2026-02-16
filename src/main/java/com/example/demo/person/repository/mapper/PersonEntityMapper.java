@@ -9,4 +9,6 @@ public interface PersonEntityMapper {
 
     List<Person> fromEntityListToDomainList(List<PersonEntity> list);
 
+    Person fromEntityToDomain(PersonEntity entity);
+
 }
