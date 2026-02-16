@@ -1,4 +1,4 @@
-package com.example.demo.person.detail;
+package com.example.demo.person.detail.controller;
 
 import com.example.demo.person.Person;
 import com.example.demo.person.detail.usecase.PersonDetailUseCase;
