@@ -3,7 +3,9 @@ package com.example.demo.person.common.repository.mapper;
 import com.example.demo.person.common.domain.Person;
 import com.example.demo.person.common.repository.PersonEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -15,5 +17,8 @@ public interface PersonEntityMapper {
     Person fromEntityToDomain(PersonEntity entity);
 
     PersonEntity fromDomainToEntity(Person domain);
+
+    @Mapping(target = "id", ignore = true)
+    void update(Person source, @MappingTarget PersonEntity target);
 
 }
