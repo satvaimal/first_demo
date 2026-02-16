@@ -8,7 +8,7 @@ import java.util.*;
 @Component
 public class PersonRepositoryImpl implements PersonRepository {
 
-    private Map<UUID, PersonEntity> map = new HashMap<>();
+    private final Map<UUID, PersonEntity> map = new HashMap<>();
 
     public PersonRepositoryImpl() {
         for (int i = 0; i < 2; i++) {
@@ -24,8 +24,14 @@ public class PersonRepositoryImpl implements PersonRepository {
 
     @Override
     public PersonEntity findById(UUID id) {
-        System.out.println("MAP GET: " + map.get(id));
         return map.get(id);
+    }
+
+    @Override
+    public PersonEntity save(PersonEntity entity) {
+        entity.setId(UUID.randomUUID());
+        map.put(entity.getId(), entity);
+        return entity;
     }
 
     private PersonEntity getPersonEntity() {

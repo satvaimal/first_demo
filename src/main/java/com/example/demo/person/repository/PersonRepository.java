@@ -9,4 +9,6 @@ public interface PersonRepository {
 
     PersonEntity findById(UUID id);
 
+    PersonEntity save(PersonEntity entity);
+
 }

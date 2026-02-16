@@ -11,4 +11,6 @@ public interface PersonEntityMapper {
 
     Person fromEntityToDomain(PersonEntity entity);
 
+    PersonEntity fromDomainToEntity(Person domain);
+
 }

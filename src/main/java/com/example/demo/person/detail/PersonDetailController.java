@@ -2,6 +2,7 @@ package com.example.demo.person.detail;
 
 import com.example.demo.person.Person;
 import com.example.demo.person.detail.usecase.PersonDetailUseCase;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/v1/people")
+@RequiredArgsConstructor
 public class PersonDetailController {
 
     private final PersonDetailUseCase useCase;
-
-    public PersonDetailController(PersonDetailUseCase useCase) {
-        this.useCase = useCase;
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Person> getDetail(@PathVariable String id) {

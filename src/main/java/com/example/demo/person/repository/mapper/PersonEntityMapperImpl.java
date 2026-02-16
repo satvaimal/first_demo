@@ -16,12 +16,23 @@ public class PersonEntityMapperImpl implements PersonEntityMapper {
 
     @Override
     public Person fromEntityToDomain(PersonEntity entity) {
-        if (entity == null) { return null; };
+        if (entity == null) { return null; }
         return new Person(
             entity.getId().toString(),
             entity.getName(),
             entity.getLastName(),
             entity.getBirthDate()
+        );
+    }
+
+    @Override
+    public PersonEntity fromDomainToEntity(Person domain) {
+        if (domain == null) { return null; }
+        return new PersonEntity(
+            null,
+            domain.name(),
+            domain.lastName(),
+            domain.birthdate()
         );
     }
 

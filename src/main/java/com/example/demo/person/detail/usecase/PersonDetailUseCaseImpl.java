@@ -2,16 +2,14 @@ package com.example.demo.person.detail.usecase;
 
 import com.example.demo.person.Person;
 import com.example.demo.person.detail.adapter.PersonDetailAdapter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class PersonDetailUseCaseImpl implements PersonDetailUseCase {
 
     private final PersonDetailAdapter adapter;
-
-    public PersonDetailUseCaseImpl(PersonDetailAdapter adapter) {
-        this.adapter = adapter;
-    }
 
     @Override
     public Person getDetail(String id) {
