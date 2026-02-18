@@ -6,14 +6,14 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
 public record PersonUpdateDto(
-    @NotNull
-    @Size(min = 1, max = 100)
-    String name,
+  @NotNull(message = "person.name.null")
+  @Size(min = 1, max = 100, message = "person.name.size.error")
+  String name,
 
-    @NotNull
-    @Size(min = 1, max = 100)
-    String lastName,
+  @NotNull(message = "person.lastName.null")
+  @Size(min = 1, max = 100, message = "person.lastName.size.error")
+  String lastName,
 
-    @NotNull
-    LocalDate birthdate
+  @NotNull(message = "person.birthdate.null")
+  LocalDate birthdate
 ) {}
