@@ -1,32 +1,30 @@
 package com.example.demo.person.list.controller;
 
-import com.example.demo.person.common.controller.dto.PersonDto;
-import com.example.demo.person.list.controller.mapper.PersonListDtoMapper;
-import com.example.demo.person.list.usecase.PersonListUseCase;
-import lombok.RequiredArgsConstructor;
+import com.example.demo.person.common.controller.PersonController;
+import com.example.demo.person.list.controller.dto.PersonListDto;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+public interface PersonListController extends PersonController {
 
-@RestController
-@RequestMapping("/v1/people")
-@RequiredArgsConstructor
-public class PersonListController {
-
-    private final PersonListUseCase useCase;
-
-    private final PersonListDtoMapper mapper;
-
-    @GetMapping
-    public ResponseEntity<List<PersonDto>> getList() {
-        return ResponseEntity.ok(
-            this.mapper.fromDomainListToDtoList(
-                this.useCase.getList()
-            )
-        );
-    }
+  @Operation(
+    summary = "List all available people",
+    description = "It shows all the people and their details"
+  )
+  @ApiResponses(value = {
+    @ApiResponse(
+      responseCode = "200",
+      description = "People found",
+      content = @Content(
+        schema = @Schema(implementation = PersonListDto.class),
+        mediaType = "application/json"
+      )
+    )
+  })
+  ResponseEntity<PersonListDto> getList();
 
 }

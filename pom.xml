@@ -30,6 +30,7 @@
 		<java.version>21</java.version>
 		<lombok.version>1.18.42</lombok.version>
 		<mapstruct.version>1.6.3</mapstruct.version>
+        <spring-doc-openapi.version>2.8.14</spring-doc-openapi.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -100,6 +101,12 @@
 			<artifactId>spring-boot-starter-liquibase-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${spring-doc-openapi.version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>
